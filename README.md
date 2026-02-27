@@ -135,10 +135,6 @@ pokemon-card-extractor/
 └── LICENSE                          # MIT License
 ```
 
-## Presentation / Talk Track
-
-The `talk_track.md` file contains a complete script you can read while stepping through the notebook cell by cell. It covers the data engineering concepts, the AI capabilities, and the key design decisions — useful for team demos, conference talks, or teaching.
-
 ## Requirements
 
 - Python 3.10+
