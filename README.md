@@ -1,6 +1,11 @@
-# Pokemon Card Extractor & eBay Search
+# Pokemonix: Card Image → Structured Data → Market Search
 
-Extract structured data from Pokemon card images using OpenAI's vision API with **Pydantic structured outputs**, then search eBay for pricing.
+Extract structured data from **trading card images** using OpenAI's vision API with **Pydantic structured outputs**, then search eBay or Whatnot for pricing.
+
+Supports:
+- 🎴 **Pokemon cards** (TCG)
+- ⚾ **Sports cards** (Baseball, Football, Basketball, Hockey)
+- 🔄 **Any domain** (the pattern generalizes)
 
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
@@ -124,16 +129,31 @@ Same for medical records, contracts, receipts, support tickets — define the sc
 ## Project Structure
 
 ```
-pokemon-card-extractor/
-├── README.md                        # This file
-├── requirements.txt                 # Python dependencies
-├── .env.example                     # Template for API key
-├── .gitignore                       # Git ignore rules
-├── pokemon_card_extractor.ipynb     # Jupyter notebook (interactive walkthrough)
-├── pokemon_card_extractor.py        # CLI version (standalone script)
-├── talk_track.md                    # Presentation script for stepping through the notebook
-└── LICENSE                          # MIT License
+pokemonix/
+├── README.md                              # This file
+├── requirements.txt                       # Python dependencies
+├── .env.example                           # Template for API key (BYOK)
+├── .gitignore                             # Git ignore rules
+├── pokemon_card_extractor.ipynb           # Pokemon cards → eBay
+├── pokemon_card_extractor_whatnot.ipynb   # Pokemon cards → Whatnot
+├── sports_card_extractor.ipynb            # Sports cards → eBay
+├── pokemon_card_extractor.py              # CLI version
+└── LICENSE                                # MIT License
 ```
+
+## Notebooks
+
+| Notebook | Input | Output |
+|----------|-------|--------|
+| `pokemon_card_extractor.ipynb` | Pokemon card image | eBay search URL |
+| `pokemon_card_extractor_whatnot.ipynb` | Pokemon card image | Whatnot search URL |
+| `sports_card_extractor.ipynb` | Sports card image (Baseball/Football/Basketball/Hockey) | eBay search URL |
+
+Each notebook is self-contained and follows the same pattern:
+1. Define a Pydantic model for the card type
+2. Pass it to OpenAI's `response_format`
+3. Get a typed, validated object back
+4. Generate marketplace search URLs
 
 ## Requirements
 
